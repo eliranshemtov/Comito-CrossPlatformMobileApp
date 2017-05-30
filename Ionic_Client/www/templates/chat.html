@@ -1,0 +1,19 @@
+<ion-view view-title="chat" align-title="left"  ng-controller="ChatController as chatCtrl" class="chat" ng-init="init()">
+  <ion-content class="chat-bg">
+      <md-card>
+    <ion-list class="msg-list" id="chatlist">
+  <ion-item ng-repeat="msg in room.messages"  class="msg" >
+            <div ng-class={'system-msg':msg.userId==-1,'my-msg':msg.userId==$root.user.id}>
+                <div class="img-span"> <div class="img" ng-style="{'background-image': 'url(' + images[msg.userId] + ')'}"
+                                             ng-if="msg.userId !=room.messages[$index-1].userId"> </div>
+                </div> <div class="msg-content">{{msg.content}}</div></div>
+   </ion-item>
+ </ion-list>
+      </md-card>
+ <div class="chat-new-msg">
+   <textarea ng-model="$parent.newMsg"> </textarea>
+   <button ng-click="sendMsg()"> <i class=" icon ion-android-send"></i> </button>
+ </div>
+  </ion-content>
+</ion-view>
+

@@ -1,0 +1,36 @@
+<ion-view view-title="FAQ" class="faqPage" ng-init="init()">
+    <ion-content ng-class="{expanded:$scope.isExpanded}">
+        <div layout="row" class="searchBar">
+            <md-input-container style="width: 80%; margin-top: 25%">
+                <label><i class="icon ion-ios-search-strong" style="vertical-align: middle; font-size: 40px"></i>Look
+                    for a Question</label>
+                <input type="text" ng-model="question">
+            </md-input-container>
+            <button class="button button-fab button-positive" ui-sref="app.feedback"><i class="icon ion-plus-round"></i>
+            </button>
+        </div>
+
+        <md-card ng-repeat="f in faq | filter : question" class="card">
+            <p class="md-title"><i class="icon ion-ios-help"
+                                   style="font-size: 40px; color: #3F51B5; vertical-align: middle;"></i> <b>{{f.q}}</b>
+            </p>
+
+            <md-card-content layout="row">
+                <p style="margin-right: 3%; margin-top: -2.5%">
+                    <i class="icon ion-information-circled"
+                       style="font-size: 40px; color: #3F51B5; vertical-align: top; text-align: center"></i>
+                <div>{{f.a}}</div>
+                </p>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+
+
+                <md-button><i class="ion-thumbsdown" style="color: darkred; font-size: xx-large"
+                              ng-click="dislike('{{f.id}}')"></i></md-button>
+                <md-button><i class="icon ion-thumbsup" style="color: green; font-size: xx-large"
+                              ng-click="like('{{f.id}}')"></i></md-button>
+                <div class="numberCircle">{{f.rank}}</div>
+            </md-card-actions>
+        </md-card>
+    </ion-content>
+</ion-view>

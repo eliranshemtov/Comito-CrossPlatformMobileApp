@@ -1,0 +1,16 @@
+<ion-view view-title="City Discover Mode" ng-init="init()">
+    <ion-content ng-class="{expanded:isExpanded}" class="animate-fade-slide-in">
+        <!--Slick Events-->
+        <div event-slider events="events" dots="true" class="image-slider"></div>
+
+        <md-divider></md-divider>
+
+        <!--Users cards - Will be transformed to slick-->
+
+        <div>
+            <div user-slider users="users" dots="true" class=""></div>
+        </div>
+
+    </ion-content>
+</ion-view>
+

@@ -1,0 +1,167 @@
+<ion-view view-title="{{title}}" class="EventForm" ng-init="init()">
+    <ion-content ng-class="{expanded:$scope.isExpanded}" class="create-event-wrapper">
+        <div class="tabs tabs-royal tabs-icon-left" style="position: static; margin-bottom: 30px; margin-top: 7%">
+            <a class="tab-item" ng-class="{'active': currentTab == 1}">
+                <i class="icon ion-clock"></i> When?
+            </a>
+            <a class="tab-item" ng-class="{'active': currentTab == 2}">
+                <i class="icon ion-information-circled"></i> What?
+            </a>
+            <a class="tab-item" ng-class="{'active': currentTab == 3}">
+                <i class="icon ion-navigate"></i> Where?
+            </a>
+        </div>
+        <form name="eventForm">
+            <div style="background-color: white; opacity: 0.7; padding-top: 0%; padding-bottom: 20%"
+                 ng-hide="currentTab!=1">
+                <br><br>
+                <div>
+                    <!--When?-->
+                    <a class="createEventTitle"><b>When?</b></a>
+                    <div layout="row">
+                        <md-datepicker ng-model="$parent.selectedDate" md-placeholder="Enter date"
+                                       style="margin-top: 3.5%"></md-datepicker>
+                        <br>
+                        &nbsp;&nbsp;
+                        <md-input-container style="margin-right: 10px;">
+                            <label>Hour</label>
+                            <md-select ng-model="$parent.selectedHour">
+                                <md-option ng-repeat="hour in $parent.hours" value="{{hour}}">{{hour}}</md-option>
+                            </md-select>
+                        </md-input-container>
+                        <md-input-container style="margin-right: 10px;">
+                            <label>Min.</label>
+                            <md-select ng-model="$parent.selectedMinutes">
+                                <md-option ng-repeat="min in $parent.minutes" value="{{min}}">{{min}}</md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+                    <div style="margin-left: 5%">
+                        <md-slider-container>
+                            <span class="md-body-1">Duration (Hours)</span>
+                            <md-slider style="width: 70%; margin-left: 7%; display: inline-block"
+                                       ng-model="$parent.duration" min="0.5" max="24" aria-label="blue" id="blue-slider"
+                                       class="md-primary">
+                            </md-slider>
+                            <a>{{duration}}</a>
+                        </md-slider-container>
+                    </div>
+                </div>
+            </div>
+
+            <!--What?-->
+            <div style="background-color: white; opacity: 0.7; padding-top: 15%; margin-top: 5%; padding-bottom: 5%"
+                 ng-hide="currentTab!=2">
+                <a class="createEventTitle"><b>What?</b></a>
+                <div>
+                    <md-input-container class="" style="margin-left: 5%">
+                        <label>Name Your Event</label>
+                        <input md-maxlength="30" required="true" md-no-asterisk="" name="eventName"
+                               ng-model="$parent.eventName">
+                        <div ng-messages="eventName.$error">
+                            <div ng-message="required">Required Field</div>
+                            <div ng-message="md-maxlength">30 Characters tops!</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block" style="margin-top: -5%; margin-left: 5%; width: 50%">
+                        <label>What is it about?</label>
+                        <md-select name="selectedSegment" ng-model="$parent.selectedSegment" required="">
+                            <md-option value="{{seg}}" ng-repeat="seg in $parent.segments">{{seg}}</md-option>
+                        </md-select>
+                        <div class="errors" ng-messages="eventForm.selectedSegment.$error"
+                             ng-if="!$parent.selectedSegment">
+                            <div ng-message="required">Required Field</div>
+                        </div>
+                    </md-input-container>
+                    <div style="background-color: white; opacity: 0.7; margin-top: 20%">
+                        <md-input-container class="md-block" style="margin-left: 5%; width: 80%">
+                            <label>Describe The Event</label>
+                            <input md-maxlength="250" required="true" md-no-asterisk="" name="description"
+                                   ng-model="$parent.description">
+                            <div ng-messages="eventName.$error">
+                                <div ng-message="required">Required Field</div>
+                                <div ng-message="md-maxlength">250 Characters tops!</div>
+                            </div>
+                        </md-input-container>
+
+
+                        <!--Chips-->
+                        <div style="width:80%; margin-left: 5%">
+                            <md-chips ng-model="$parent.selectedTag" md-autocomplete-snap=""
+                                      md-transform-chip="transformChip($chip)"
+                                      md-require-match="autocompleteDemoRequireMatch">
+                                <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText"
+                                                 md-items="item in querySearch(searchText)" md-item-text="item.name"
+                                                 placeholder="Tag The Event!">
+                                    <span md-highlight-text="searchText">{{item.name}}</span>
+                                </md-autocomplete>
+                                <md-chip-template>
+                            <span>
+                              <strong>{{$chip.name}}</strong>
+                            </span>
+                                </md-chip-template>
+                            </md-chips>
+                        </div>
+                        <!--End of Chips!-->
+                    </div>
+                </div>
+            </div>
+
+            <!--Where - Google Maps -->
+            <div style="background-color: white; opacity: 0.7;  padding-bottom: 10%; margin-bottom: 10%"
+                 ng-hide="currentTab!=3">
+                <br><br>
+                <a class="createEventTitle"><b>Where?</b></a>
+                <div class="blackBackground">
+                    <md-content>
+                        <md-input-container style="margin-left: 5%">
+                            <label>Address</label>
+                            <input ng-model="view.addressInput" ng-model-options="{debounce: 1000}"
+                                   ng-change="buscarDireccion()"/>
+                        </md-input-container>
+                        <div layout="row">
+                            <md-input-container flex="99">
+                                <label>Available Locations</label>
+                                <md-select ng-model="$parent.view.selectedPlace" ng-disabled="view.places.length < 2"
+                                           ng-change="centrarUbicacion()">
+                                    <md-option ng-repeat="place in view.places" value="{{place.place_id}}">
+                                        {{place.formatted_address}}
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+                            <md-button class="md-icon-button" ng-click="borrarMarcadores()"
+                                       ng-disabled="view.markers.length === 0">
+                                <md-tooltip md-delay="1500" md-autohide="true">Borrar</md-tooltip>
+                            </md-button>
+                        </div>
+                    </md-content>
+
+
+                    <div id="map" class="altura-mapa" style="opacity: 1"></div>
+                    <script type="text/ng-template" id="icons_24x24.svg">
+                        <svg
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                            <g id="white_delete">
+                                <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+                                <path d="M0 0h24v24H0z" fill="none"/>
+                            </g>
+                        </svg>
+                    </script>
+                </div>
+            </div>
+            <button ng-show="currentTab==1 || currentTab == 2"
+                    class="button button-fab button-fab-bottom-right button-energized-900" ng-click="nextTab()"><i
+                    class="icon ion-ios-skipforward"></i></button>
+        </form>
+
+        <a ng-show="currentTab==3" class="button button-fab button-fab-bottom-right button-energized-900"
+           ng-click="sendData()"><i class="icon ion-android-send"></i></a>
+        <a ng-show="currentTab==1 || currentTab == 2"
+           class="button button-fab button-fab-bottom-right button-energized-900" ng-click="nextTab()"><i
+                class="icon ion-ios-skipforward"></i></a>
+
+    </ion-content>
+</ion-view>

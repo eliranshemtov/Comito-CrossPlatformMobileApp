@@ -1,0 +1,39 @@
+<ion-view view-title="Create Your Event" class="EventForm" ng-init="init()">
+    <ion-content ng-class="{expanded:$scope.isExpanded}" scroll="false">
+        <div class="feedbackPage">
+            <h2><b>We Want To Improve...</b></h2>
+            <h3> Tell Us How!</h3>
+            <div class="feedbackForm">
+                <form name="feedbackForm">
+                    <md-input-container class="md-block">
+                        <label>What's your feedback about?</label>
+                        <md-select name="chosenReason" ng-model="$parent.chosenReason" required="">
+                            <md-option value="{{res}}" ng-repeat="res in reasons">{{res}}</md-option>
+                        </md-select>
+                        <div class="errors" ng-messages="feedbackForm.chosenReason.$error" ng-if="feedbackForm.$dirty">
+                            <div ng-message="required">Required Field</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block" style="margin-top: 10%">
+                        <label>What's up?</label>
+                        <input md-maxlength="250" required="" md-no-asterisk="" name="msg" ng-model="$parent.msg">
+                        <div ng-messages="msg.$error">
+                            <div ng-message="required">Required Field</div>
+                            <div ng-message="md-maxlength">Try to wrap up the issue with 250 characters tops.</div>
+                        </div>
+                    </md-input-container>
+
+                    <div layout="row" style="margin-top: -20%">
+                        <button id="fab-profile" class="button button-fab button-fab-bottom-right button-positive"
+                                ng-click="feedbackSent()" ng-disabled="feedbackForm.$invalid" style="bottom: 40px"><i
+                                class="icon ion-android-send"></i></button>
+                        <button id="fab-profile" class="button button-fab button-fab-bottom-left button-assertive"
+                                ng-click="clearValue()" ng-disabled="!chosenReason && !msg" style="bottom: 40px"><i
+                                class="icon ion-close-round"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

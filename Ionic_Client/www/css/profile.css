@@ -1,0 +1,55 @@
+.about-section{
+    margin-bottom: 20px;
+}
+.about-section .about-title{
+   font-size: 19px;
+    margin:5px 0;
+    color: #b06bff;
+    font-weight: bold;
+}
+.about-section .main-title{
+    margin-bottom: 10px;
+}
+.about-section label{
+    display: block;
+}
+.about-section input{
+    display: block;
+    border-bottom: 1px solid #ccc;
+}
+.edit-profile-wrapper .md-chips{
+    margin: 0 10px;
+}
+.edit-profile-wrapper .md-chips .md-chip{
+    background-color: #6b46e5;
+    color: #fff;
+}
+.edit-profile-wrapper .edit-profile-overlay{
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 15px 20px;
+}
+.edit-profile-wrapper .tab-item{
+    font-size: 18px;
+}
+.edit-profile-wrapper .tab-item :hover{
+    color: #fff;
+}
+.edit-profile-wrapper .tabs-royal{
+    margin: 0;
+    margin-bottom: 10px;
+    margin-top:0 !important;
+}
+.profile-page .button.button-fab.button-fab-top-right,.profile-page .button.button-fab.button-fab-top-right{
+    top:51px;
+}
+.card__author button.edit{
+    background-color: #2196F3;
+    width: 45px;
+    height: 45px;
+    float: right;
+    border-radius: 50%;
+    font-size: 24px;
+    border:none;
+    color: #fff;
+
+}

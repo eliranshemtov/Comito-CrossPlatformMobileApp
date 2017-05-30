@@ -1,0 +1,56 @@
+<div>
+    <md-card style="background-color: #1B5E20">
+        <md-card-title style="color: white;">
+            <md-card-title-text>
+                <span class="md-headline">Music</span>
+                <span class="md-subhead" id="whiteText"><span
+                        ng-repeat="music in userData.likes.music">{{music.name}} <span
+                        ng-if="!$last">,</span></span></span>
+            </md-card-title-text>
+            <md-card-media style="margin-left: 10%">
+                <i class="icon ion-headphone" style="font-size: 40px"></i>
+            </md-card-media>
+        </md-card-title>
+    </md-card>
+
+    <md-card style="background-color: #1bb556">
+        <md-card-title style="color: white;">
+            <md-card-title-text>
+                <span class="md-headline">Books</span>
+                <span class="md-subhead" id="whiteText"><span
+                        ng-repeat="book in userData.likes.books">{{book.name}} <span
+                        ng-if="!$last">,</span></span></span>
+            </md-card-title-text>
+            <md-card-media style="margin-left: 10%">
+                <i class="icon ion-ios-bookmarks" style="font-size: 40px"></i>
+            </md-card-media>
+        </md-card-title>
+    </md-card>
+
+    <md-card style="background-color: #1B5E20">
+        <md-card-title style="color: white;">
+            <md-card-title-text>
+                <span class="md-headline">Movies</span>
+                <span class="md-subhead" id="whiteText"><span ng-repeat="movie in userData.likes.movies">{{movie.name}} <span
+                        ng-if="!$last">,</span></span></span>
+            </md-card-title-text>
+            <md-card-media style="margin-left: 10%">
+                <i class="icon ion-ios-videocam" style="font-size: 40px"></i>
+            </md-card-media>
+        </md-card-title>
+    </md-card>
+
+    <md-card style="background-color: #1bb556">
+        <md-card-title style="color: white;">
+            <md-card-title-text>
+                <span class="md-headline">Hobbies</span>
+                <span class="md-subhead" id="whiteText"><span
+                        ng-repeat="hobbie in userData.hobbies">{{hobbie.name}} <span
+                        ng-if="!$last">,</span></span></span>
+            </md-card-title-text>
+            <md-card-media style="margin-left: 10%">
+                <i class="icon ion-ios-football" style="font-size: 40px"></i>
+            </md-card-media>
+        </md-card-title>
+    </md-card>
+</div>

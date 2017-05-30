@@ -1,0 +1,68 @@
+<ion-view view-title="<i class='icon ion-android-options'></i> &nbsp; Settings" class="SettingsPage" ng-init="init()">
+    <ion-content ng-class="{expanded:$scope.isExpanded}">
+        <md-card>
+            <md-subheader class="md-no-sticky">Match Preferences</md-subheader>
+            <div layout="row">
+                <div flex="20" layout="" layout-align="center center">
+                    <span class="md-body-1">Dist. </span>
+                </div>
+                <div class="dist">
+                    &nbsp;&nbsp;{{distance}} KM
+                </div>
+                <div class="slid">
+                    <md-slider ng-model="setting.distance" class="md-primary" ng-model="dis" flex="10%"
+                               layout-align-gt-sm="" class="md-primary" md-discrete="" step="1" min="1" max="100"
+                               aria-label="distance">
+                    </md-slider>
+                </div>
+            </div>
+            <div layout="row">
+                <div flex="10" layout="" layout-align="center center" style="margin-right: 10%">
+                    <span class="md-body-1">Ages</span>
+                </div>
+                <div class="dist">
+                    {{settings.age.min}}-{{settings.age.max}}
+                </div>
+                <!--md-slider ng-model="ages" flex="10%" layout-align-gt-sm="" class="md-primary" md-discrete=""  step="1" min="18" max="40" aria-label="ages">
+                </md-slider-->
+                <div range-slider
+                     floor="18"
+                     ceiling="40"
+                     dragstop="true"
+                     ng-model-low="settings.age.min"
+                     ng-model-high="settings.age.max"></div>
+
+            </div>
+            <md-input-container>
+                <label>Matches gender</label>
+                <md-select ng-model="settings.gender" md-selected-text="getSelectedText()">
+                    <md-optgroup label="Show me:">
+                        <md-option ng-value="gender" ng-repeat="gender in genders"> {{gender}}</md-option>
+                    </md-optgroup>
+                </md-select>
+            </md-input-container>
+        </md-card>
+        <md-card>
+            <md-list>
+                <md-subheader class="md-no-sticky">Additional settings</md-subheader>
+                <md-list-item ng-click="">
+                    <p><i class='icon ion-android-notifications'></i> Push Notifications</p>
+                    <md-switch class="md-primary" ng-model="settings.push"></md-switch>
+                </md-list-item>
+                <md-list-item ng-click="">
+                    <p><i class='icon ion-chatboxes'></i> Disable Chat</p>
+                    <md-switch class="md-primary" ng-model="settings.chat"></md-switch>
+                </md-list-item>
+                <md-list-item ui-sref="app.segments">
+                    <p><i class='icon ion-refresh'></i> Re-Choose Categories</p>
+                </md-list-item>
+            </md-list>
+        </md-card>
+        <div class="buttonContainer">
+            <button ng-click="logout()" class="button button-full button-assertive ink">
+                <i class="icon ion-log-out"></i> &nbsp;&nbsp;&nbsp;
+                Logout
+            </button>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,26 @@
+<ion-view view-title="Profile">
+    <ion-content ng-class="{expanded:$scope.isExpanded}">
+        <div ng-click="subPage = 'templates/otherProfile/otherProfileMain.html'" class="hero slide-up" style="background-image: url('img/profile-bg.jpg');">
+            <div class="content">
+                <div class="avatar" style="background-image: url('img/eran.jpg');"></div>
+                <h3><a class="shad">Eran Reuveni, 27</a></h3>
+                <h4>Local in Berlin, Germany</h4>
+            </div>
+        </div>
+        <div class="tabs tabs-positive tabs-icon-top static">
+
+            <a ng-click="subPage = 'templates/otherProfile/otherProfileLikes.html'" class="tab-item">
+                <i class="icon ion-heart"></i> Likes
+            </a>
+            <a ng-click="subPage = 'templates/otherProfile/otherProfileVisited.html'" class="tab-item">
+                <i class="icon ion-earth"></i> Visited
+            </a>
+            <a ng-click="subPage = 'templates/otherProfile/otherProfileEvents.html'" class="tab-item">
+                <i class="icon ion-calendar"></i> Events
+            </a>
+        </div>
+        <div ng-init="subPage = 'templates/otherProfile/otherProfileMain.html'">
+            <div ng-include="subPage"></div>
+        </div>
+    </ion-content>
+</ion-view>

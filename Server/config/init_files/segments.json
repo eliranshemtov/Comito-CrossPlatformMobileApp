@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Art",
+    "picUrl": "./img/segments/art.gif"
+  },
+  {
+    "name": "Dating",
+    "picUrl": "./img/segments/dating.gif"
+  },
+  {
+    "name": "Fashion",
+    "picUrl": "./img/segments/fashion.gif"
+  },
+  {
+    "name": "Finance",
+    "picUrl": "./img/segments/finance.gif"
+  },
+  {
+    "name": "Food",
+    "picUrl": "./img/segments/food.gif"
+  },
+  {
+    "name": "Health",
+    "picUrl": "./img/segments/health.gif"
+  },
+  {
+    "name": "Music",
+    "picUrl": "./img/segments/music.gif"
+  },
+  {
+    "name": "Politics",
+    "picUrl": "./img/segments/politics.gif"
+  },
+  {
+    "name": "Science",
+    "picUrl": "./img/segments/science.gif"
+  },
+  {
+    "name": "Sports",
+    "picUrl": "./img/segments/sports.gif"
+  },
+  {
+    "name": "Tech",
+    "picUrl": "./img/segments/tech.gif"
+  },
+  {
+    "name": "TV",
+    "picUrl": "./img/segments/TV.gif"
+  },
+  {
+    "name": "Culture",
+    "picUrl": "./img/segments/culture.gif"
+  },
+  {
+    "name": "Career",
+    "picUrl": "./img/segments/career.gif"
+  }
+]

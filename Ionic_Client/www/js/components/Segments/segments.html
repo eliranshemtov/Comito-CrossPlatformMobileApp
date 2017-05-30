@@ -1,0 +1,16 @@
+<ion-view view-title="Pick your top 3 interests" ng-init="init()">
+    <ion-content ng-class="{expanded:isExpanded}" class="animate-fade-slide-in segmentations">
+        <div class="list condensed-space no-padding animate-blinds card dark-bg segmentCard" ng-repeat="seg in segments"
+             ng-click="toggleSegment(seg.id)">
+            <a class="clear-bg item-bg-image waves-effect waves-button waves-light has-mask-reverse ">
+                <h2 class="segmentCard1">{{seg.text}}</h2>
+                <img ng-src="{{seg.picUrl}}" class="segment"
+                     ng-class="{'selected':selectedSegments.indexOf(seg.id)!=-1}">
+            </a>
+        </div>
+
+    </ion-content>
+    <button ng-click="next()" id="fab-profile"
+            class="button button-fab button-fab-bottom-right button-energized-900 fixedbutton"><i
+            class="icon ion-android-send"></i></button>
+</ion-view>

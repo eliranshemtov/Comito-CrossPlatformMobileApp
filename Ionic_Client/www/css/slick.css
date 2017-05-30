@@ -1,0 +1,62 @@
+.slick-dots{
+ margin: 0 auto;
+ text-align: center;
+}
+
+.slick-dots li{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    border: 2px solid black;
+    color: transparent;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+.slick-dots li button{
+    background: transparent;
+    color: transparent;
+    border: transparent;
+
+}
+.slick-dots .slick-active {
+    border: 2px solid black;
+    background-color: #ccc;
+}
+
+.userCard{
+    height: 283px;
+    background-color: #0D47A1;
+    color: white;
+    font-size: smaller;
+    display: inline-block;
+    line-height: 18px;
+    margin:20px;
+}
+.userCard .fabContainer{
+    background-color: #1A237E;
+    padding-top: 2%;
+    margin-top: 26px;
+    position: relative;
+    bottom: 0;
+    width: 100%
+}
+.userCard .max-lines{
+    line-height: 20px;
+}
+
+
+
+.userCard:hover{
+    background-color: #2196F3;
+    opacity: 0.7;
+}
+
+.picInUserCard{
+    width: 100%;
+    height: 100px;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}

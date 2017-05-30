@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">-->
+
+    <title>Co-mito</title>
+    <!--<link href='https://fonts.googleapis.com/css?family=RobotoDraft:400,500,700,400italic' rel='stylesheet' type='text/css'>-->
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="lib/ion-md-input/css/ion-md-input.min.css" rel="stylesheet">
+    <link href="lib/angular-material/angular-material.css" rel="stylesheet">
+    <link href="lib/ionic-material/dist/ionic.material.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/chat.css" rel="stylesheet">
+    <link href="css/slick.css" rel="stylesheet">
+    <link href="css/profile.css" rel="stylesheet">
+    <link href="css/range-slider.css" rel="stylesheet">
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/angular-aria/angular-aria.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-aria.min.js"></script>-->
+    <script src="lib/angular-material/angular-material.js"></script>
+    <script src="lib/ionic-material/dist/ionic.material.js"></script>
+    <script src="lib/ion-md-input/js/ion-md-input.min.js"></script>
+
+
+    <!--<script src="lib/jquery/dist/jquery.min.js"></script>-->
+    <!--<script src="lib/slick-carousel/slick/slick.min.js"></script>-->
+    <!--<link href="lib/slick-carousel/slick/slick.css" rel="stylesheet">-->
+    <!--<script src="lib/angular-slick/dist/slick.min.js"></script>-->
+
+    <script type="text/javascript" src="lib/angular-resource/angular-resource.js"></script>
+
+
+    <!--socket io client library-->
+    <script src="http://chat.socket.io/socket.io/socket.io.js"></script>
+    <!-- Other Libraries-->
+    <script src="lib/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="lib/angular-socket-io/socket.js"></script>
+
+    <!--GoogleMaps-->
+    <script src='https://maps.googleapis.com/maps/api/js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js'></script>
+
+    <!--Slick-->
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/slick-carousel/slick/slick.min.js"></script>
+    <link href="lib/slick-carousel/slick/slick.css" rel="stylesheet">
+    <script src="lib/angular-slick/dist/slick.min.js"></script>
+
+
+    <script src="cordova.js"></script>
+    <!-- app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/routes.js"></script>
+
+    <!-- controllers' js -->
+    <script src="js/components/Activity/ActivityController.js"></script>
+    <script src="js/components/CreateEvent/createEventController.js"></script>
+    <script src="js/components/EventDetails/eventDetailsController.js"></script>
+    <script src="js/components/Events/eventsController.js"></script>
+    <script src="js/components/FAQ/FaqController.js"></script>
+    <script src="js/components/Feedback/FeedbackController.js"></script>
+    <script src="js/components/Login/LoginController.js"></script>
+    <script src="js/components/Offers/OffersController.js"></script>
+    <script src="js/components/Profile/languagesCountriesService.js"></script>
+    <script src="js/components/Profile/ProfileController.js"></script>
+    <script src="js/components/Segments/segmentsController.js"></script>
+    <script src="js/components/Settings/SettingsController.js"></script>
+    <script src="js/shared/mainView/MainController.js"></script>
+
+    <!--services' js -->
+    <script src="js/components/Login/userService.js"></script>
+    <script src="js/components/Profile/languagesCountriesService.js"></script>
+    <script src="js/shared/mainView/MainService.js"></script>
+    <script src="js/components/segments/SegmentsService.js"></script>
+    <script src="js/ApiService.js"></script>
+
+    <!--directives' js -->
+    <script src="js/components/directives/event-slider.js"></script>
+    <script src="js/components/directives/range-slider.js"></script>
+    <script src="js/components/directives/user-slider.js"></script>
+
+
+</head>
+<body ng-app="comito">
+    <ion-nav-view></ion-nav-view>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<ion-view view-title="Profile Edit" class="ProfileEditForm">
+    <ion-content ng-class="{expanded:$scope.isExpanded}" class="edit-profile-wrapper"
+                 style="background: url(./img/eventForm.jpg) center; background-size: cover;">
+        <div class="tabs tabs-royal tabs-icon-left" style="position: static; margin-bottom: 30px; margin-top: 7%">
+            <a class="tab-item" ng-class="{'active': currentTab == 1}" ng-click="switchTab(1)">
+                <i class="icon ion-ios-body"></i> General
+            </a>
+            <a class="tab-item" ng-class="{'active': currentTab == 2}" ng-click="switchTab(2)">
+                <i class="icon ion-ios-heart"></i> Likes
+            </a>
+            <a class="tab-item" ng-class="{'active': currentTab == 3}" ng-click="switchTab(3)">
+                <i class="icon ion-map"></i> Visited
+            </a>
+        </div>
+        <form name="profileEditForm">
+            <div style="padding-bottom: 5%" ng-hide="currentTab!=1" class="edit-profile-overlay">
+                <div style="width:80%; margin-left: 5%">
+                    <!--GENRAL-->
+                    <!--Chips-->
+                    <div class="list"><span>
+                  <div class="about-section">
+                      <label class="item item-input">
+                          <label class="about-title main-title">About</label>
+                          <input type="text" ng-model="editData.about" class="item-floating-label">
+                      </label>
+                  </div>
+                  <div class="about-section">
+                      <label class="item item-input">
+                          <label class="about-title">Looking For</label>
+                          <input type="text" ng-model="editData.looking4" required class="item-floating-label">
+                      </label>
+                  </div>
+                        <div class="about-section">
+                            <label class="item item-input">
+                                <label class="about-title">Hometown</label>
+                            </label>
+                            <md-chips ng-model="editData.from" md-autocomplete-snap=""
+                                      md-transform-chip="transformChip($chip)"
+                                      md-require-match="true">
+                                <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText"
+                                                 md-items="item in querySearch(searchText,'country')"
+                                                 md-item-text="item.name"
+                                                 placeholder="Enter your hometown city">
+                                    <span md-highlight-text="searchText">{{item.name}}</span>
+                                </md-autocomplete>
+                                <md-chip-template>
+                    <span>
+                      <strong>{{$chip.name}}</strong>
+                    </span>
+                                </md-chip-template>
+                            </md-chips>
+                        </div>
+                        <!-- chips -->
+                        <div class="about-section">
+                            <label class="item item-input">
+                                <label class="about-title">Language</label>
+                            </label>
+                            <md-chips ng-model="editData.languages" md-autocomplete-snap=""
+                                      md-transform-chip="transformChip($chip)" md-require-match="true">
+                                <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText"
+                                                 md-items="item in querySearch(searchText,'language')"
+                                                 md-item-text="item.name"
+                                                 placeholder="Enter a Language">
+                                    <span md-highlight-text="searchText">{{item.name}}</span>
+                                </md-autocomplete>
+                                <md-chip-template>
+                  <span>
+                    <strong>{{$chip.name}}</strong>
+                  </span>
+                                </md-chip-template>
+                            </md-chips>
+                        </div>
+                  </span>
+                    </div>
+                    <!--End of Chips!-->
+                </div>
+            </div>
+
+            <div style=" padding-bottom: 5%" ng-hide="currentTab!=2" class="edit-profile-overlay">
+                <div style="width:80%; margin-left: 5%">
+
+                    <!--Likes-->
+                    <div class="about-section">
+                        <a class="GeneralEditProfile about-title main-title"><b>Likes</b></a>
+                    </div>
+
+                    <div class="list"><span>
+                     <div class="about-section">
+                         <label class="about-title">Music</label>
+                         <!--Chips-->
+                         <md-chips ng-model="editData.likes.music" md-autocomplete-snap=""
+                                   md-transform-chip="transformChip($chip)" md-require-match="true"
+                                   placeholder="Enter your music">
+                             <md-chip-template>
+                      <span>
+                        <strong>{{$chip.name}}</strong>
+                      </span>
+                             </md-chip-template>
+                         </md-chips>
+                     </div>
+
+                     <div class="about-section">
+                         <label class="about-title">Books</label>
+
+                         <md-chips ng-model="editData.likes.books" md-autocomplete-snap=""
+                                   md-transform-chip="transformChip($chip)" md-require-match="true"
+                                   placeholder="Enter your books">
+                             <md-chip-template>
+                      <span>
+                        <strong>{{$chip.name}}</strong>
+                      </span>
+                             </md-chip-template>
+                         </md-chips>
+                     </div>
+
+                        <div class="about-section">
+                            <label class="about-title">Movies</label>
+
+                            <md-chips ng-model="editData.likes.movies" md-autocomplete-snap=""
+                                      md-transform-chip="transformChip($chip)" md-require-match="true"
+                                      placeholder="Enter a Movies">
+                                <md-chip-template>
+                      <span>
+                        <strong>{{$chip.name}}</strong>
+                      </span>
+                                </md-chip-template>
+                            </md-chips>
+                        </div>
+                    </span>
+                    </div>
+                    <!--End of Chips!-->
+                </div>
+            </div>
+
+            <div style=" padding-bottom: 5%" ng-hide="currentTab!=3" class="edit-profile-overlay">
+                <div style="width:80%; margin-left: 5%">
+
+                    <!--Visited-->
+                    <div class="about-section">
+                        <a class="GeneralEditProfile about-title main-title"><b>Visited</b></a>
+                        <md-chips ng-model="editData.visited" md-autocomplete-snap=""
+                                  md-transform-chip="transformChip($chip)" md-require-match="true">
+                            <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText"
+                                             md-items="item in querySearch(searchText,'country')"
+                                             md-item-text="item.name"
+                                             placeholder="Enter places your visited">
+                                <span md-highlight-text="searchText">{{item.name}}</span>
+                            </md-autocomplete>
+                            <md-chip-template>
+                  <span>
+                    <strong>{{$chip.name}}</strong>
+                  </span>
+                            </md-chip-template>
+                        </md-chips>
+                    </div>
+                </div>
+                <!--End of Chips!-->
+            </div>
+            </div>
+        </form>
+    </ion-content>
+    <button ng-click="update()" id="fab-profile"
+            class="button button-fab button-fab-bottom-right button-positive fixedbutton"><i
+            class="icon ion-android-done"></i></button>
+</ion-view>

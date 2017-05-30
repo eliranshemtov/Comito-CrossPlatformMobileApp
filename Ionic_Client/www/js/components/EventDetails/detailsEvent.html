@@ -1,0 +1,96 @@
+<ion-view view-title="Event's Details" ng-init="init()">
+    <ion-content ng-class="{expanded:isExpanded}" class="animate-fade-slide-in">
+        <ion-list class="animate-ripple">
+
+            <div class="item">
+                <div class="card-event radius shadowDepth1">
+                    <div class="card__image border-tlr-radius">
+                        <img src="http://lorempixel.com/400/200/food/" alt="image" class="border-tlr-radius">
+                    </div>
+
+                    <div class="card__content card__padding eventDetailsCard">
+                        <div class="card__share">
+                            <div class="card__social">
+                            </div>
+                            <a id="share" ng-show="$parent.joined==false" ng-click="joinEvent(); openChat=!openChat"
+                               class="button button-fab button-calm"><i class="icon ion-plus-round"></i></a>
+                            <a id="share" ng-show="$parent.joined==true" ng-click="leave()"
+                               class="button button-fab button-assertive"><i class="icon ion-close-round"></i></a>
+                        </div>
+
+                        <div class="card__meta" style="margin-left: -4px; margin-bottom: 4px">
+                            <a href="#">{{$parent.event.eventName}}</a>
+                            <time>{{$parent.event.Date}}</time>
+                            <br>
+                            <i class="icon ion-clock"></i> {{$parent.event.Hour}}:{{$parent.event.Minutes}}
+                            &nbsp;&nbsp;
+                            <strong>Duration:</strong> {{$parent.event.duration}} Hours
+                        </div>
+
+                        <article class="card__article">
+                            <h2 style="font-size: larger; margin-top: 7%"><a href="#"><strong>What's Waiting For
+                                you?</strong></a></h2>
+
+                            <p style="white-space: pre-wrap; ">{{$parent.event.description}}</p>
+                        </article>
+                        <h2><strong> Who's In ?</strong></h2><br>
+                        <div layout="row">
+                            <div ng-repeat="par in $parent.event.participants">
+                                <img ng-src="{{par.img}}" class="eventParticipants" ng-click="goToUser(par.id)"> &nbsp;
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card__action">
+
+                        <div class="card__author">
+                            <img src="http://lorempixel.com/40/40/people/" alt="user">
+                            <div class="card__author-content">
+                                By <a href="#">{{$parent.event.ownerName}}</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a id="share" ng-show="$parent.joined==true"
+                       class="button button-fab button-fab-bottom-right button-balanced motion"
+                       ng-class="{'drop':openChat}" href="#"><i class="icon ion-chatboxes bigger"></i></a>
+                </div>
+            </div>
+
+
+            <!--<ion-item nav-clear menu-close class="item-icon-right item-avatar" ng-click="blinds();">-->
+            <!--<img src="img/material4.jpg">-->
+            <!--<h2>.animate-blinds</h2>-->
+            <!--<p>ionicMaterialMotion.blinds();</p>-->
+            <!--<i class="icon ion-chatbubble muted"></i>-->
+            <!--</ion-item>-->
+            <!--<ion-item nav-clear menu-close class="item-icon-right item-avatar" ng-click="ripple();">-->
+            <!--<img src="img/material2.jpg">-->
+            <!--<h2>.animate-ripple</h2>-->
+            <!--<p>ionicMaterialMotion.ripple();</p>-->
+            <!--<i class="icon ion-chatbubble muted"></i>-->
+            <!--</ion-item>-->
+            <!--<ion-item nav-clear menu-close class="item-icon-right item-avatar" ng-click="fadeSlideIn();">-->
+            <!--<img src="img/material3.jpg">-->
+            <!--<h2>.animate-fade-slide-in</h2>-->
+            <!--<p>ionicMaterialMotion.fadeSlideIn();</p>-->
+            <!--<i class="icon ion-chatbubble muted"></i>-->
+            <!--</ion-item>-->
+            <!--<ion-item nav-clear menu-close class="item-icon-right item-avatar" ng-click="fadeSlideInRight();">-->
+            <!--<img src="img/material1.jpg">-->
+            <!--<h2>.animate-fade-slide-in-right</h2>-->
+            <!--<p>ionicMaterialMotion.fadeSlideInRight();</p>-->
+            <!--<i class="icon ion-chatbubble muted"></i>-->
+            <!--</ion-item>-->
+            <!--</ion-list>-->
+
+
+        </ion-list>
+        <!--<div class="wrapper">-->
+        <!--<div class="item">-->
+
+        <!--</div>-->
+        <!--</div>-->
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,32 @@
+<ion-view view-title="Profile" ng-init="init()" class="profile-page" md-no-ink="true">
+    <ion-content ng-class="{expanded:$scope.isExpanded}">
+        <div ng-click="subPage = 'js/Profile/profileview/profileMain.html'" class="hero slide-up"
+             style="background-image: url('img/profile-bg.jpg');">
+            <div class="content">
+                <div class="avatar" ng-style="{'background-image': 'url(' + userData.img + ')'}"></div>
+                <h3><a class="shad">{{userData.name}}, {{userData.age}}</a></h3>
+
+                <h4>Tourist in {{userData.in}}, from {{userData.from[0].name}}</h4>
+            </div>
+        </div>
+        <div class="tabs tabs-positive tabs-icon-top static">
+
+            <a ng-click="subPage = 'js/components/profile/profileView/profileLikes.html'" class="tab-item">
+                <i class="icon ion-heart"></i> Likes
+            </a>
+            <a ng-click="subPage = 'js/components/profile/profileView/profileVisited.html'" class="tab-item">
+                <i class="icon ion-earth"></i> Visited
+            </a>
+            <a ng-click="subPage = 'js/components/profile/profileView/profileEvents.html'" class="tab-item">
+                <i class="icon ion-calendar"></i> Events
+            </a>
+        </div>
+        <div ng-init="subPage = 'js/components/profile/profileView/profileMain.html'">
+            <div ng-include="subPage"></div>
+        </div>
+    </ion-content>
+    <button ng-if="!myProfile" id="fab-profile" class="button button-fab button-fab-top-right button-calm"
+            ng-click="startConversation()"><i class="icon ion-email"></i></button>
+    <button ng-if="myProfile" id="fab-profile" class="button button-fab button-fab-top-right button-calm"
+            ng-click="EditMode()"><i class="icon ion-edit"></i></button>
+</ion-view>

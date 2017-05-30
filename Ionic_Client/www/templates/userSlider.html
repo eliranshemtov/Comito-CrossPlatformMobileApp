@@ -1,0 +1,21 @@
+<ul class="user-slider " >
+
+        <li ng-repeat="user in users"  class="offer-user">
+            <md-card class="userCard">
+                <div class="picInUserCard" ng-style="{'background-image': 'url(' + user.picUrl + ')'}"> </div>
+                <div class="name">
+                    <strong> {{user.name}}, &nbsp; {{user.age}} </strong> <br>
+                    <i class="icon ion-android-home"></i> From {{user.from}}<br>
+                    <hr class="white">
+
+                    <div class="max-lines">
+                        <i class="icon ion-information-circled"></i> {{user.about}}
+                    </div>
+                    <div class="fabContainer">
+                        <button ui-sref="app.profile({id: user.id}) " class="button button-fab ink-dark button-calm icon ion-information smaller"></button>
+                        <button ng-if="user.id!=$root.user.id"  ui-sref="app.rooms" class="button button-fab ink-dark button-positive icon ion-chatboxes smaller"></button>
+                    </div>
+                </div>
+            </md-card>
+        </li>
+</ul>

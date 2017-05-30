@@ -1,0 +1,116 @@
+.rooms{
+  color:#0066ff !important;
+}
+.list .item.rooms{
+  text-align: center;
+  border-bottom: 1px solid #0066ff;
+  background: white;
+  opacity: 0.7;
+  margin: 10px;
+  width: calc(100% - 10px);
+}
+.rooms .user-img{
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  margin: 20px;
+  border: 1px solid #ccc;
+}
+
+.msg{
+  font-size: 17px;
+  white-space: normal;
+}
+.chat md-card{
+  height: calc(100vh - 200px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  opacity: 0.85;
+  margin: 20px;
+}
+.chat-new-msg{
+  text-align: center;
+  margin: 20px;
+  color: #3320AB;
+  height: 150px;
+  position: relative;
+}
+.chat-bg{
+  background-image: url('../img/chat_background.jpg');
+  background-size: cover;
+  background-position: center;
+  /*opacity: 0.6;*/
+}
+.my-msg{
+  direction: rtl;
+  float: right;
+  padding-right: 10px
+}
+.msg .img{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+  background-position: center;
+  vertical-align: middle;
+  border: 1px solid #ccc;
+  background-size:100%;
+  background-repeat:no-repeat ;
+  visibility: visible !important;
+}
+.msg{
+  white-space: nowrap;
+}
+.msg .img-span{
+  width: 80px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.msg .msg-content{
+  width: calc(100% - 80px);
+  display: inline-block;
+  vertical-align: middle;
+  white-space: normal;
+}
+.chat-new-msg textarea{
+  color: #0C082A;
+  border: 1px solid #210CAA;
+  width: 100%;
+  height: 80px;
+  padding-right: 80px;
+  padding-left: 10px;
+  padding-top: 10px;
+
+}
+.chat-new-msg button{
+  background-color: #210CAA;
+  color: white;
+  border: 1px solid #210CAA;
+  width: 66px;
+  height: 79px;
+  position: absolute;
+  font-size: 35px;
+  top: 0;
+  right: 0;
+
+}
+.rooms-tab-header{
+  margin-bottom: 5px;
+  border-bottom: 1px solid #ccc;
+}
+.rooms-tab-header button{
+  border: transparent;
+  background-color: transparent;
+  color: #292929;
+  height: 50px;
+  width: 100px;
+  font-size: 18px;
+}
+.rooms-tab-header .tabSelected{
+  color: #4c65aa;
+  font-weight: bold;
+  border-bottom: 4px solid #ff2a64;
+}
+
+

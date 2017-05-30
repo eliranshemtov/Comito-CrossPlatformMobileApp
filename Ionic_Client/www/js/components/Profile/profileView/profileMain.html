@@ -1,0 +1,38 @@
+<div>
+    <md-card class="blueCard profileCard">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">About {{name}}</span>
+                <span class="md-subhead" id="whiteText">{{userData.about}}</span>
+            </md-card-title-text>
+            <md-card-media class="profileCardIcon">
+                <i class="icon ion-information-circled"></i>
+            </md-card-media>
+        </md-card-title>
+    </md-card>
+
+    <md-card class="lightBlueCard profileCard">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{name}} Speaks</span>
+                <span class="md-subhead" id="whiteText"><span ng-repeat="language in userData.languages">{{language.name}} <span
+                        ng-if="!$last">,</span></span></span>
+            </md-card-title-text>
+            <md-card-media class="profileCardIcon">
+                <i class="icon ion-android-microphone"></i>
+            </md-card-media>
+        </md-card-title>
+    </md-card>
+
+    <md-card class="blueCard profileCard">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">Looking for</span>
+                <span class="md-subhead" id="whiteText">{{userData.looking4}}</span>
+            </md-card-title-text>
+            <md-card-media class="profileCardIcon">
+                <i class="icon ion-ios-eye"></i>
+            </md-card-media>
+        </md-card-title>
+    </md-card>
+</div>

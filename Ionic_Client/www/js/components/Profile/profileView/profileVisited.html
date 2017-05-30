@@ -1,0 +1,16 @@
+<div>
+    <md-card style="background-color: #673AB7">
+        <md-card-title style="color: white">
+            <md-card-title-text>
+                <span class="md-headline">Places {{name}} Visited</span>
+                <span class="md-subhead" id="whiteText"><span ng-repeat="visit in userData.visited">{{visit.name}} <span
+                        ng-if="!$last">,</span></span></span>
+            </md-card-title-text>
+            <md-card-title-media>
+                <div class="md-media-lg card-media">
+                    <img src="./img/planeMap.gif">
+                </div>
+            </md-card-title-media>
+        </md-card-title>
+    </md-card>
+</div>

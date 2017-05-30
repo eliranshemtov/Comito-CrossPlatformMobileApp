@@ -1,0 +1,31 @@
+<ion-view view-title="rooms" align-title="left" ng-controller="RoomsController as roomsCtrl" ng-init="init()">
+    <ion-content class="chat-bg">
+
+
+        <div class="rooms-tab-header">
+            <button ng-click="selected=1" ng-class="{'tabSelected':selected==1}">
+                Events
+            </button>
+            <button ng-click="selected=2" ng-class="{'tabSelected':selected==2}">
+                Peoples
+            </button>
+        </div>
+
+        <ion-list ng-hide="selected!=1" class="rooms-list">
+            <ion-item ng-repeat="room in rooms" ng-if="!room.isPrivate"
+                      class="rooms" ng-click="goToChat(room.id)">
+                <span ng-repeat="r in room.members"> <img ng-src="{{r.img}}" class="user-img"></span>
+            </ion-item>
+        </ion-list>
+        <ion-list ng-hide="selected!=2">
+
+            <ion-item ng-repeat="room in rooms" ng-if="room.isPrivate"
+                      class="rooms" ng-click="goToChat(room.id)">
+                <span ng-repeat="r in room.members"> <img ng-src="{{r.img}}"  class="user-img"></span>
+
+            </ion-item>
+        </ion-list>
+
+
+    </ion-content>
+</ion-view>
