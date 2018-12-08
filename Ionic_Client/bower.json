@@ -8,6 +8,6 @@
   },
   "dependencies": {
     "angular-material": "^1.0.9",
-    "facebook-connect-plugin": "https://cdn.rawgit.com/Wizcorp/phonegap-facebook-plugin/master/facebookConnectPlugin.js"
+    "facebook-connect-plugin": "https://cdn.jsdelivr.net/gh/Wizcorp/phonegap-facebook-plugin/facebookConnectPlugin.js"
   }
 }
